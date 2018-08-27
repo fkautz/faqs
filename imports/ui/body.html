@@ -1,0 +1,73 @@
+<body>
+    <label class='editor-mode'>
+        {{#if currentUser}}
+        <br />
+        <input type='checkbox' checked='{{isEditor}}' /> Editor mode
+        {{/if}}
+    </label>
+  <div class="container">
+    <form class="new-faq">
+      <input type="text" name="question" placeholder="Add a Question" />
+    </form>
+    <h2>
+      Answered Questions
+    </h2>
+    <u1>
+      {{#each answeredFaqs}}
+        {{>answeredFaq}}
+      {{/each}}
+    </u1>
+    <h2>
+      Pending Questions
+    </h2>
+    <u1>
+      {{#each unansweredFaqs}}
+        {{>unansweredFaq}}
+      {{/each}}
+    </u1>
+  </div>
+  {{> loginButtons }} to manage
+</body>
+
+<template name="answeredFaq">
+  <p>
+    {{#if isEditor}}
+    <form class="edit-answer">
+      <div>
+        Visible: <input type='checkbox' name="isVisible" checked="{{visible}}" />
+        <br/>
+        Title:
+        <input type="text" name="question" placeholder="Answer" value='{{question}}'/>
+        <br/>
+        <br/>
+        Answer:
+        <br/>
+        <textarea name="answer" cols=80 rows=5 placeholder="Answer" value='{{answer}}'>{{answer}}</textarea>
+        <br/>
+        <input type='submit' />
+      </div>
+    </form>
+    <hr>
+    {{else}}
+    {{#if isVisible}}
+    Visible: {{visible}}
+    <br />
+    isVisible: {{isVisible}}
+        <h3>{{question}}</h3>
+        <div>{{answer}}</div>
+    {{/if}}
+    {{/if}}
+  </p>
+</template>
+
+<template name="unansweredFaq">
+  <p>
+    <h3>
+      {{question}}
+    </h3>
+    <form class="new-answer">
+      <input type="text" name="answer" placeholder="Answer" />
+      </form>
+  </p>
+</template>
+
