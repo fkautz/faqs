@@ -17,17 +17,23 @@
         {{>answeredFaq}}
       {{/each}}
     </u1>
-    <h2>
-      Pending Questions
-    </h2>
-    <u1>
-      {{#each unansweredFaqs}}
-        {{>unansweredFaq}}
-      {{/each}}
-    </u1>
+    {{>pendingQuestions}}
   </div>
   {{> loginButtons }} to manage
 </body>
+
+<template name="pendingQuestions">
+    {{#if currentUser}}
+        <h2>
+            Pending Questions
+        </h2>
+        <u1>
+            {{#each unansweredFaqs}}
+            {{>unansweredFaq}}
+            {{/each}}
+        </u1>
+    {{/if}}
+</template>
 
 <template name="answeredFaq">
   <p>

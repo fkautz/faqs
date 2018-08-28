@@ -5,6 +5,11 @@ import './main.html';
 
 import '../imports/ui/body.js'
 
+// Initial code from:
+// https://stackoverflow.com/a/42308842 by https://stackoverflow.com/users/3300480/sudhir
+// Adapted for Faqs
+// https://creativecommons.org/licenses/by-sa/3.0/
+
 window.addEventListener('message', function (event) {
     // Need to check for safty as we are going to process only our messages
     // So Check whether event with data(which contains any object) contains our message here its "FrameHeight"

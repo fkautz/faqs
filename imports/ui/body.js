@@ -14,10 +14,13 @@ Template.body.onCreated(function bodyOnCreated() {
     Session.set('isEditor', true);
 });
 
+Template.pendingQuestions.helpers({
+    unansweredFaqs() {
+        return Faqs.find({answer: { $exists: false}});
+    },
+});
+
 Template.body.helpers({
-  unansweredFaqs() {
-    return Faqs.find({answer: { $exists: false}});
-  },
   answeredFaqs() {
       return Faqs.find({answer: { $exists: true}});
   }

@@ -19,7 +19,7 @@ Meteor.methods({
         }
         Faqs.update(id, {
             $set: { 
-                isVisible: true,
+                visible: true,
                 answer: answer,
                 createdAt: new Date(),
             },
